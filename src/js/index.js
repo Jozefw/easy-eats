@@ -1,6 +1,16 @@
-// Global app controller
+import axios from 'axios';
 
+const key = '4ede74b9084fe8586f90c8b8682a2460';
+const proxy = 'https://cors-anywhere.herokuapp.com/'
 
-import x from './test';
+async function getResults(query){
+    try {
+        const result = await axios(`${proxy}https://www.food2fork.com/api/search?key=${key}&q=${query}`);
+        console.log(result);    
+    } catch (error) {
+        console.log(error);
+    }
 
-console.log(`the number ${x} was imported`);
+}
+
+getResults('pizza')
